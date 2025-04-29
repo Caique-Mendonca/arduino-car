@@ -1,0 +1,53 @@
+void setup() {
+  // Inicializa os pinos como saída
+  pinMode(7, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(4, OUTPUT);
+  
+  // Inicia a comunicação serial
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Verifica se há dados disponíveis para leitura na serial
+  if (Serial.available() > 0) {
+    char comando = Serial.read(); // Lê o caractere enviado
+
+    if (comando == 'w') {
+      // Frente
+      digitalWrite(7, LOW);
+      digitalWrite(6, HIGH);
+      digitalWrite(5, HIGH);
+      digitalWrite(4, LOW);
+    }
+    else if (comando == 's') {
+      // Trás
+      digitalWrite(7, HIGH);
+      digitalWrite(6, LOW);
+      digitalWrite(5, LOW);
+      digitalWrite(4, HIGH);
+    }
+    else if (comando == 'a') {
+      // Esquerda
+      digitalWrite(7, LOW);
+      digitalWrite(6, HIGH);
+      digitalWrite(5, LOW);
+      digitalWrite(4, LOW);
+    }
+    else if (comando == 'd') {
+      // Direita
+      digitalWrite(7, LOW);
+      digitalWrite(6, LOW);
+      digitalWrite(5, HIGH);
+      digitalWrite(4, LOW);
+    }
+    else {
+      // Parado (caso nenhuma tecla válida seja pressionada)
+      digitalWrite(7, LOW);
+      digitalWrite(6, LOW);
+      digitalWrite(5, LOW);
+      digitalWrite(4, LOW);
+    }
+  }
+}
