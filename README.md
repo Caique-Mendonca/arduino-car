@@ -1,0 +1,1 @@
+Carro feito com arduino, Podendo ser movido com bluetooth usando o app inventor, outro projeto usando sensor ultrassonico, fazendo a trajetória de maior distância e parar quando vê um obstáculo
